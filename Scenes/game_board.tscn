@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dvajjigfnctc2"]
+
+[ext_resource type="Script" uid="uid://w77co683c2gc" path="res://Scripts/GameBoard.cs" id="1_legbf"]
+[ext_resource type="TileSet" uid="uid://dlg84porghykj" path="res://Resourses/Tiles.tres" id="1_pxj3o"]
+[ext_resource type="PackedScene" uid="uid://bu4wcnkb02xd7" path="res://Scenes/number_cube.tscn" id="2_s5vlf"]
+
+[node name="GameBoard" type="Node2D" unique_id=100649620 node_paths=PackedStringArray("tilemap")]
+script = ExtResource("1_legbf")
+tilemap = NodePath("TileMapLayer")
+numberCubeScene = ExtResource("2_s5vlf")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=966153307]
+tile_set = ExtResource("1_pxj3o")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1477432475]
+anchor_mode = 0

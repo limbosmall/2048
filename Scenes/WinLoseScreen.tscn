@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://vxonabq24egx"]
+
+[ext_resource type="Script" uid="uid://ccye6it8dbavf" path="res://Scripts/WinLoseScreen.cs" id="1_vd3mv"]
+[ext_resource type="FontFile" uid="uid://g2rigi6plf0a" path="res://Resourses/pixel_font.fnt" id="2_osq4i"]
+
+[node name="WinLoseScreen" type="MarginContainer" unique_id=1803343871 node_paths=PackedStringArray("WinLoseLbl", "ScoreLbl", "PlayAgainBtn", "MainMenuBtn")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 250
+theme_override_constants/margin_bottom = 100
+script = ExtResource("1_vd3mv")
+WinLoseLbl = NodePath("MarginContainer/VBoxContainer/WinLoseLbl")
+ScoreLbl = NodePath("MarginContainer/VBoxContainer/Score")
+PlayAgainBtn = NodePath("MarginContainer/VBoxContainer/HBoxContainer/PlayAgainBtn")
+MainMenuBtn = NodePath("MarginContainer/VBoxContainer/HBoxContainer/MainMunuBtn")
+
+[node name="Panel" type="Panel" parent="." unique_id=1049956191]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1104477737]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=106067096]
+layout_mode = 2
+
+[node name="WinLoseLbl" type="Label" parent="MarginContainer/VBoxContainer" unique_id=661967340]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_osq4i")
+theme_override_font_sizes/font_size = 46
+text = "Placeholder"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer" unique_id=138452582]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_osq4i")
+theme_override_font_sizes/font_size = 27
+text = "Score:"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Gap" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1220365035]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1426327893]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+alignment = 1
+
+[node name="Gap" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1421759548]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.46
+
+[node name="PlayAgainBtn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1614632791]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_osq4i")
+theme_override_font_sizes/font_size = 25
+text = "PLAY AGAIN"
+
+[node name="Gap1" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1956465177]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.46
+
+[node name="MainMunuBtn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=768117426]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_osq4i")
+theme_override_font_sizes/font_size = 24
+text = "MAIN MENU"
+
+[node name="Gap2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1024164415]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.46
+
+[node name="Gap1" type="Control" parent="MarginContainer/VBoxContainer" unique_id=34312141]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2

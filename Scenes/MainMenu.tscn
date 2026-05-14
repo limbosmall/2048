@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://crcuckx2lg7gv"]
+
+[ext_resource type="Script" uid="uid://2d826lp74uvg" path="res://Scripts/MainMenu.cs" id="1_8um5k"]
+[ext_resource type="PackedScene" uid="uid://dvajjigfnctc2" path="res://Scenes/game_board.tscn" id="1_853f1"]
+[ext_resource type="Script" uid="uid://cp1xirn8i3k7g" path="res://Scripts/GameBoardAutoPlay.cs" id="2_8saeu"]
+[ext_resource type="PackedScene" uid="uid://b660rtkfvb1cn" path="res://Scenes/SettingsScene.tscn" id="2_xim88"]
+[ext_resource type="Shader" uid="uid://ckx5c7kr5vub4" path="res://Resourses/dissolve_merge.gdshader" id="3_8saeu"]
+[ext_resource type="FontFile" uid="uid://g2rigi6plf0a" path="res://Resourses/pixel_font.fnt" id="4_ghw46"]
+[ext_resource type="Shader" uid="uid://d2l4eivfkr4d4" path="res://Resourses/fontShader.gdshader" id="5_df05h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ghw46"]
+shader = ExtResource("3_8saeu")
+shader_parameter/blur_amount = 3.0
+shader_parameter/tint_color = Color(0, 0, 0, 0.4)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_df05h"]
+shader = ExtResource("5_df05h")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8um5k"]
+shader = ExtResource("5_df05h")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+
+[node name="MainMenu" type="Control" unique_id=1450304390 node_paths=PackedStringArray("NewGameBtn", "SettingsBtn", "QuitBtn")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8um5k")
+NewGameBtn = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/NewGameBtn")
+SettingsBtn = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SettringsBtn")
+QuitBtn = NodePath("MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/QuitBtn")
+SettingsScene = ExtResource("2_xim88")
+
+[node name="GameBoard" parent="." unique_id=100649620 instance=ExtResource("1_853f1")]
+script = ExtResource("2_8saeu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1060378135]
+material = SubResource("ShaderMaterial_ghw46")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=857973767]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=799985872]
+layout_mode = 2
+
+[node name="WaterMark" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1941793347]
+material = SubResource("ShaderMaterial_df05h")
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ghw46")
+theme_override_font_sizes/font_size = 29
+text = "DOT'S"
+
+[node name="GameName" type="Label" parent="MarginContainer/VBoxContainer" unique_id=156806156]
+material = SubResource("ShaderMaterial_8um5k")
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ghw46")
+theme_override_font_sizes/font_size = 66
+text = "2048 (SPBSTU EDITION)"
+horizontal_alignment = 1
+
+[node name="Gap" type="Control" parent="MarginContainer/VBoxContainer" unique_id=988800439]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=894777576]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=2078590043]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="NewGameBtn" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=24033856]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_ghw46")
+theme_override_font_sizes/font_size = 35
+text = "NEW GAME"
+
+[node name="SettringsBtn" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1849956847]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_ghw46")
+theme_override_font_sizes/font_size = 35
+text = "SETTINGS"
+
+[node name="QuitBtn" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1827978600]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_ghw46")
+theme_override_font_sizes/font_size = 35
+text = "QUIT"
+
+[editable path="GameBoard"]

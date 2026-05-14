@@ -1,0 +1,15 @@
+.godot/
+.vscode/
+*.translation
+
+# Godot / Mono / C#
+.mono/
+bin/
+obj/
+
+# Builds
+Playable build/
+Builds/
+
+# Export templates
+*.tpz
